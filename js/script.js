@@ -16,7 +16,7 @@ $(function() {
 
 		this.id = randomString();
 		this.name = name;
-		this.$element = createColumn();//dlaczego$element?
+		this.$element = createColumn();
 //czemu nie prototyp
 		function createColumn() {
 		//COLUMN'S ELEMENTS
@@ -50,7 +50,7 @@ $(function() {
 			this.$element.children('ul').append(card.$element);
 		},
 		removeColumn: function() {
-			this.$element.remove(); //czy z self też zadziała?
+			this.$element.remove();
 		}
 	};
 
@@ -65,7 +65,7 @@ $(function() {
 		function createCard() {
 		//CARD'S ELEMENTS
 			var $card = $('<li>').addClass('card');
-			var $cardDescription = $('<p').addClass('card-description').text('self.description');
+			var $cardDescription = $('<p>').addClass('card-description').text(self.description);
 			var $cardDelete = $('<button>').addClass('btn-delete').text('x');
 
 		//EVENT LISTENERS

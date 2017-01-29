@@ -1,7 +1,78 @@
+/*GLOBAL STYLES*/
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
 * {
-	border: 1px solid blue;
+	/*border: 1px solid blue;*/
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: 'Amatic SC', cursive;
+	font-size: 20px;
+}
+
+li {
+	list-style: none;
+}
+
+ul {
+	padding: 0;
+}
+
+.header {
+	padding: 10px 20px;
+	text-align: center;
+	background-color: cadetblue;
+    color: white;
+}
+
+/*COLUMNS POSITION*/
+.column-container {
+	display: flex;
+	flex-wrap: wrap;
+	min-height: 85vh;
+
+}
+
+.column {
+	width: 25%;
+	padding: 20px;
+	margin: 2%;
+
+	border-radius: 15px;
+}
+
+/*COLUMNS STYLE*/
+.column {
+	background-color:  rgba(255, 255, 255, 0.2);
+}
+
+.column h2 {
+	text-align: center;
+}
+
+.column-container {
+	background: url('https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/71MV86FEOX.jpg');
+	background-size: cover;
+}
+
+.column-card-list {
+	background-color:  rgba(255, 255, 255, 0.5);
+}
+
+
+/*CARDS*/
+.card {
+	background-color: rgba(192,192,192,0.6);
+	/*border-radius: ;*/
 }
 
 .card-placeholder {
 	background: blue;
+}
+
+.column-card-list {
+	min-height: 30vh;
+	padding-bottom: 5vh;
 }
