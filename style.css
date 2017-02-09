@@ -27,25 +27,30 @@ ul {
     color: white;
 }
 
+.header h1 {
+	margin-bottom: 0;
+}
+
+
 /*COLUMNS POSITION*/
 .column-container {
 	display: flex;
+	justify-content: space-around;
 	flex-wrap: wrap;
 	min-height: 85vh;
 
 }
 
 .column {
-	width: 25%;
+	width: 30%;
 	padding: 20px;
-	margin: 2%;
-
+	margin-top: 10px;
 	border-radius: 15px;
 }
 
 /*COLUMNS STYLE*/
 .column {
-	background-color:  rgba(255, 255, 255, 0.2);
+	background-color:  rgba(255, 255, 255, 0.4);
 }
 
 .column h2 {
@@ -61,18 +66,74 @@ ul {
 	background-color:  rgba(255, 255, 255, 0.5);
 }
 
+.column-controler {
+	display: flex;
+	justify-content: flex-end;
+}
+
 
 /*CARDS*/
 .card {
-	background-color: rgba(192,192,192,0.6);
+	box-sizing: border-box;
+	padding: 5px;
+	margin-bottom: 10px;
+	background-color: rgba(199, 223, 52, 0.7);
+	font-size: 1.1em;
+	/*min-height: 20vh;*/
 	/*border-radius: ;*/
-}
-
-.card-placeholder {
-	background: blue;
 }
 
 .column-card-list {
 	min-height: 30vh;
 	padding-bottom: 5vh;
 }
+
+/*UI*/
+.card-placeholder {
+	box-sizing: border-box;
+	display: block;
+	height: 60px;
+	margin-bottom: 5px;
+	border: 2px solid lightgrey;
+	background-color: lightblue;
+}
+
+.ui-sortable-helper:active {
+	transform: rotate(8deg);
+}
+
+/*BUTTONS*/
+button {
+	font-family: "Palatino Linotype", cursive;
+	border: none;
+	outline: none;
+    cursor: pointer;
+}
+
+.create-column {
+	padding: 15px;
+    border-radius: 30px;
+    background-color: #ecf0f1;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+}
+
+.card button {
+	float: right;
+	background-color: rgba(243, 18, 18, 0.5);
+	border-radius: 50%;
+}
+
+.btn-delete {
+	background-color: grey;
+	border-radius: 0 45% 45% 0;
+}
+.add-card {
+	background-color: cadetblue;
+	border-radius: 45% 0 0 45%;
+
+}
+/*INPUT*/
+
+

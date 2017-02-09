@@ -20,25 +20,42 @@ $(function() {
 //czemu nie prototyp
 		function createColumn() {
 		//COLUMN'S ELEMENTS
-			var $column = $('<div>').addClass('column'); //dolar w nazwie tylko dla opisu?
+			var $column = $('<div>').addClass('column');
 			var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
 			var $columnCardList = $('<ul>').addClass('column-card-list');
+			var $columnControler = $('<div>').addClass('column-controler');
+			var $columnAddCart = $('<button>').addClass('add-card').text('+');
+			var $columnAddname = $('<input>').addClass('add-input');
 			var $columnDelete = $('<button>').addClass('btn-delete').text('x');
-			var $columnAddCart = $('<button>').addClass('add-card').text('Dodaj kartę');
+			
 
 		//EVENT LISTENERS
 			$columnDelete.click(function() {
 				self.removeColumn();
-			}); //czemu tutaj średnik?
+			});
+//BUG - INPUT NAME NIE DZIAŁA
 			$columnAddCart.click(function() {
-				self.addCard(new Card(prompt('Wpisz nazwę karty')));
-			});//j/w
+				var inputName = $('<input>');
+				var inputName = inputName[0];
+				console.log('nazwa ' + inputName);
+				if (inputName ="") {
+				self.addCard(new Card(inputName));
+				}
+				else {
+					alert('huj');
+				}
+			});
 		
 		//COLUMN SET UP
-			$column.append($columnTitle)
-					.append($columnDelete)
-					.append($columnAddCart)
-					.append($columnCardList);
+			$columnControler
+				.append($columnAddname)
+				.append($columnAddCart)
+				.append($columnDelete);
+
+			$column
+				.append($columnTitle)
+				.append($columnControler)
+				.append($columnCardList);
 
 		//COLUMN RETURN
 			return $column;
