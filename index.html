@@ -6,10 +6,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 	<section id="board" class="board">
-	  <h1>Tablica kanban</h1>
-	  <button class="create-column">Dodaj kolumnę</button>
+        <div class="header">
+            <h1>Tablica kanban</h1>
+            <div class="section-create-column">
+                <button class="btn-create-column">Dodaj kolumnę</button>
+                <div class="column-confirm">
+                    <input type="text" name="column-name" id="input-column-name"><button class="btn-add-card"> + </button>
+                </div>
+            </div>
+        </div>
 	  <div class="column-container"></div>
 	</section>
 

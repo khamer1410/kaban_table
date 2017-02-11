@@ -1,7 +1,165 @@
+/*GLOBAL STYLES*/
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
 * {
-	border: 1px solid blue;
+	box-sizing: border-box;
 }
 
+body {
+	margin: 0;
+	font-family: 'Amatic SC', cursive;
+	font-size: 20px;
+}
+
+li {
+	list-style: none;
+}
+
+ul {
+	padding: 0;
+}
+
+.header {
+	padding: 10px 20px;
+	text-align: center;
+	background-color: cadetblue;
+    color: white;
+}
+
+.header h1 {
+	margin-bottom: 0;
+}
+
+/*COLUMNS POSITION*/
+.column-container {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	min-height: 85vh;
+}
+
+.column {
+	width: 30%;
+	padding: 20px;
+	margin-top: 10px;
+	border-radius: 15px;
+}
+
+/*COLUMNS STYLE*/
+.column {
+	background-color:  rgba(255, 255, 255, 0.4);
+}
+
+.column h2 {
+	text-align: center;
+}
+
+.column-container {
+	background: url('https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/71MV86FEOX.jpg');
+	background-size: cover;
+}
+
+.column-card-list {
+	background-color:  rgba(255, 255, 255, 0.5);
+}
+
+.column-controler {
+	display: flex;
+	justify-content: flex-end;
+}
+
+/*CARDS*/
+.card {
+	padding: 5px;
+	margin-bottom: 10px;
+	background-color: rgba(199, 223, 52, 0.7);
+	font-size: 1.1em;
+	text-align: center;
+}
+
+.column-card-list {
+	min-height: 30vh;
+	padding-bottom: 5vh;
+}
+
+/*UI*/
 .card-placeholder {
-	background: blue;
+	display: block;
+	height: 80px;
+	margin-bottom: 5px;
+	border: 2px solid lightgrey;
+	background-color: lightblue;
+}
+
+.ui-sortable-helper:active {
+	transform: rotate(8deg);
+}
+
+/*BUTTONS*/
+button {
+	font-family: "Palatino Linotype";
+	border: none;
+	outline: none;
+    cursor: pointer;
+}
+
+.btn-create-column, .column-confirm {
+	display:inline;
+	padding: 15px;
+    border-radius: 30px;
+    background-color: transparent;
+    text-transform: uppercase;
+    outline: none;
+    border: 2px solid rgba(199, 223, 52, 0.7);
+    color: white;
+}
+
+.column-confirm {
+	display: none;
+}
+
+.column-confirm .btn-add-card {
+	background-color: rgba(199, 223, 52, 0.7);
+	border-radius: 0 45px 45px 0;
+	vertical-align: middle;
+}
+
+.card button {
+	float: right;
+	background-color: rgba(243, 18, 18, 0.5);
+	border-radius: 50%;
+}
+
+.btn-delete {
+	background-color: grey;
+	border-radius: 0 45% 45% 0;
+}
+
+.btn-delete:hover, .btn-delete:active {
+	background-color: rgba(243, 18, 18, 0.8);
+	transition: 0.3s;
+}
+
+.btn-add-card {
+	background-color: cadetblue;
+	color: white;
+}
+
+/*INPUT*/
+input {
+	border-radius: 45px 0 0 45px;
+	outline: none;
+	border: none;
+	padding: 0 3px;
+	text-align: center;
+}
+
+input:focus {
+	box-shadow: 0 0 20px rgba(243, 18, 18, 0.5);
+}
+
+.column-confirm input {
+	height: 18px;
+	vertical-align: middle;
+	border-radius: 45px 0 0 45px;
 }
