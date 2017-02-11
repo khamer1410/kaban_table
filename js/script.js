@@ -1,4 +1,5 @@
 $(function() {
+
 //RANDOM NUMBER FOR ID ASSIGNATION
 	function randomString() {
 		var chars = '0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ';
@@ -17,14 +18,14 @@ $(function() {
 		this.id = randomString();
 		this.name = name;
 		this.$element = createColumn();
-//czemu nie prototyp
+
 		function createColumn() {
 		//COLUMN'S ELEMENTS
 			var $column = $('<div>').addClass('column');
 			var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
 			var $columnCardList = $('<ul>').addClass('column-card-list');
 			var $columnControler = $('<div>').addClass('column-controler');
-			var $columnAddCart = $('<button>').addClass('add-card').text('+');
+			var $columnAddCart = $('<button>').addClass('btn-add-card').text('+');
 			var $columnAddname = $('<input>').addClass('add-input');
 			var $columnDelete = $('<button>').addClass('btn-delete').text('x');
 			
@@ -33,19 +34,16 @@ $(function() {
 			$columnDelete.click(function() {
 				self.removeColumn();
 			});
-//BUG - INPUT NAME NIE DZIAŁA
-			$columnAddCart.click(function() {
-				var inputName = $('<input>');
-				var inputName = inputName[0];
-				console.log('nazwa ' + inputName);
-				if (inputName ="") {
-				self.addCard(new Card(inputName));
-				}
-				else {
-					alert('huj');
+
+			// $columnAddCart.click(() => (
+			$columnAddCart.click(() => {
+				if ($columnAddname[0].value) {
+					(self.addCard(new Card($columnAddname[0].value)));
+				} else {
+					$columnAddname[0].setAttribute('placeholder', 'Wpisz nazwę kartki');
 				}
 			});
-		
+	
 		//COLUMN SET UP
 			$columnControler
 				.append($columnAddname)
@@ -111,8 +109,9 @@ $(function() {
 			this.$element.append(column.$element);
 			initSortable();
 		},
-		$element: $('#board .column-container') //dlaczego nie na początku obiektu? definiuje element użyty w funkcji
+		$element: $('#board .column-container')
 	};
+
 	//UI QUERRY - DRAG&DROP
 	function initSortable() {
 		$('.column-card-list').sortable({
@@ -120,17 +119,26 @@ $(function() {
 			placeholder: 'card-placeholder'
 		}).disableSelection();
 	}
+
 	//EVENT LISTENER
-	$('.create-column').click(function() {
-		var name = prompt('Nazwa kolumny');
-		var column = new Column(name);
+	$('.btn-create-column').click(() => $('.column-confirm').css('display','inline-block'));
+
+	$('.btn-add-card').click(() => {
+		var name = $('#input-column-name')[0];
+		if (name.value) {
+		var column = new Column(name.value);
 		board.addColumn(column);
-	})
+		$('.column-confirm').hide();
+		name.value = '';
+	} else {
+		name.setAttribute('placeholder', 'Wpisz nazwę kolumny');
+	}
+	});
 
 //CREATING COLUMN
 	var todoColumn = new Column('Do zrobienia');
 	var	doingColumn = new Column('W trakcie');
-	var doneColumn = new Column('Skończone')
+	var doneColumn = new Column('Skończone');
 
 //ADD COLUMN TO TABLE
 	board.addColumn(todoColumn);

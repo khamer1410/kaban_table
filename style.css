@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 
 * {
-	/*border: 1px solid blue;*/
 	box-sizing: border-box;
 }
 
@@ -31,14 +30,12 @@ ul {
 	margin-bottom: 0;
 }
 
-
 /*COLUMNS POSITION*/
 .column-container {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
 	min-height: 85vh;
-
 }
 
 .column {
@@ -71,16 +68,13 @@ ul {
 	justify-content: flex-end;
 }
 
-
 /*CARDS*/
 .card {
-	box-sizing: border-box;
 	padding: 5px;
 	margin-bottom: 10px;
 	background-color: rgba(199, 223, 52, 0.7);
 	font-size: 1.1em;
-	/*min-height: 20vh;*/
-	/*border-radius: ;*/
+	text-align: center;
 }
 
 .column-card-list {
@@ -90,9 +84,8 @@ ul {
 
 /*UI*/
 .card-placeholder {
-	box-sizing: border-box;
 	display: block;
-	height: 60px;
+	height: 80px;
 	margin-bottom: 5px;
 	border: 2px solid lightgrey;
 	background-color: lightblue;
@@ -104,19 +97,31 @@ ul {
 
 /*BUTTONS*/
 button {
-	font-family: "Palatino Linotype", cursive;
+	font-family: "Palatino Linotype";
 	border: none;
 	outline: none;
     cursor: pointer;
 }
 
-.create-column {
+.btn-create-column, .column-confirm {
+	display:inline;
 	padding: 15px;
     border-radius: 30px;
-    background-color: #ecf0f1;
+    background-color: transparent;
     text-transform: uppercase;
     outline: none;
-    border: none;
+    border: 2px solid rgba(199, 223, 52, 0.7);
+    color: white;
+}
+
+.column-confirm {
+	display: none;
+}
+
+.column-confirm .btn-add-card {
+	background-color: rgba(199, 223, 52, 0.7);
+	border-radius: 0 45px 45px 0;
+	vertical-align: middle;
 }
 
 .card button {
@@ -129,11 +134,32 @@ button {
 	background-color: grey;
 	border-radius: 0 45% 45% 0;
 }
-.add-card {
-	background-color: cadetblue;
-	border-radius: 45% 0 0 45%;
 
+.btn-delete:hover, .btn-delete:active {
+	background-color: rgba(243, 18, 18, 0.8);
+	transition: 0.3s;
 }
+
+.btn-add-card {
+	background-color: cadetblue;
+	color: white;
+}
+
 /*INPUT*/
+input {
+	border-radius: 45px 0 0 45px;
+	outline: none;
+	border: none;
+	padding: 0 3px;
+	text-align: center;
+}
 
+input:focus {
+	box-shadow: 0 0 20px rgba(243, 18, 18, 0.5);
+}
 
+.column-confirm input {
+	height: 18px;
+	vertical-align: middle;
+	border-radius: 45px 0 0 45px;
+}
