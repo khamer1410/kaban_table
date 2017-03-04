@@ -143,6 +143,7 @@ button {
 .btn-add-card {
 	background-color: cadetblue;
 	color: white;
+	border: none;
 }
 
 /*INPUT*/
