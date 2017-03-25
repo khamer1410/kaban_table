@@ -17,7 +17,7 @@ $(function() {
 		this.id = randomString();
 		this.name = name;
 		this.$element = createColumn();
-	
+
 		function createColumn() {
 		//COLUMN'S ELEMENTS
 			var $column = $('<div>').addClass('column');
@@ -34,6 +34,7 @@ $(function() {
 			});
 
 			$columnAddCart.click(function() {
+
 				if ($columnAddname[0].value) {
 					(self.addCard(new Card($columnAddname[0].value)));
 				} else {
