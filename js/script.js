@@ -14,7 +14,6 @@ $(function() {
 //CREATING COLUMN
 	function Column(name) {
 		var self = this;
-
 		this.id = randomString();
 		this.name = name;
 		this.$element = createColumn();
@@ -29,14 +28,13 @@ $(function() {
 			var $columnAddname = $('<input>').addClass('add-input');
 			var $columnDelete = $('<button>').addClass('btn-delete').text('x');
 			
-
 		//EVENT LISTENERS
 			$columnDelete.click(function() {
 				self.removeColumn();
 			});
 
-			// $columnAddCart.click(() => (
-			$columnAddCart.click(() => {
+			$columnAddCart.click(function() {
+
 				if ($columnAddname[0].value) {
 					(self.addCard(new Card($columnAddname[0].value)));
 				} else {
@@ -54,12 +52,10 @@ $(function() {
 				.append($columnTitle)
 				.append($columnControler)
 				.append($columnCardList);
-
-		//COLUMN RETURN
 			return $column;
 		}
 	}
-
+	
 	Column.prototype = {
 		addCard: function(card) {
 			this.$element.children('ul').append(card.$element);
@@ -72,10 +68,9 @@ $(function() {
 //CREATING CARDS
 	function Card(description) {
 		var self = this;
-
 		this.id = randomString();
 		this.description = description;
-		this.$element = createCard();// $ = "Właściwość element (analogicznie do przykładu z kolumną) przechowuje element DOM, który tworzy nam ta funkcja."
+		this.$element = createCard();
 
 		function createCard() {
 		//CARD'S ELEMENTS
@@ -86,16 +81,15 @@ $(function() {
 		//EVENT LISTENERS
 			$cardDelete.click(function() {
 				self.removeCard();
-			})
+			});
 
 		//CARD SET UP
 			$card.append($cardDelete)
-					.append($cardDescription);
-
-		//CARD RETURN
+				.append($cardDescription);
 			return $card;
 		}
 	}
+
 	Card.prototype = {
 		removeCard: function() {
 			this.$element.remove();
@@ -121,20 +115,23 @@ $(function() {
 	}
 
 	//EVENT LISTENER
-	$('.btn-create-column').click(() => $('.column-confirm').css('display','inline-block'));
+	$('.btn-create-column').click(function() {
+		$('.column-confirm').css('display','inline-block');
+	});
 
-	$('.btn-add-card').click(() => {
+	$('.btn-add-card').click(function() {
 		var name = $('#input-column-name')[0];
 		if (name.value) {
 		var column = new Column(name.value);
 		board.addColumn(column);
 		$('.column-confirm').hide();
 		name.value = '';
-	} else {
-		name.setAttribute('placeholder', 'Wpisz nazwę kolumny');
-	}
+		} else {
+			name.setAttribute('placeholder', 'Wpisz nazwę kolumny');
+		}
 	});
-
+	
+//DEFAULT STATE
 //CREATING COLUMN
 	var todoColumn = new Column('Do zrobienia');
 	var	doingColumn = new Column('W trakcie');
@@ -152,4 +149,4 @@ $(function() {
 //ADD CARD TO COLUMN
 	todoColumn.addCard(card1);
 	doingColumn.addCard(card2);
-})
+});
